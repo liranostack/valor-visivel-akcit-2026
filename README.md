@@ -10,11 +10,21 @@ e ainda não conta. Cada frase do resultado aponta para algo que ela disse na co
 
 Projeto do hackathon **AKCIT Camp, regional Nordeste** (Recife, 13/11/2026).
 
-> **Esta é a versão aberta do código.** A arquitetura, os agentes, as proteções, a avaliação e a
-> interface são os mesmos da versão usada na demo. O conteúdo do método (guias, perguntas-base e
-> prompts de condução da especialista) é proprietário e foi trocado por um **método de exemplo**,
-> suficiente para rodar a primeira etapa de ponta a ponta. Por isso as conversas desta versão são
-> mais simples que as da demo.
+> [!IMPORTANT]
+> **Aviso: esta é a versão aberta do código, sem o conteúdo proprietário.**
+>
+> A arquitetura, os agentes, as proteções, a avaliação e a interface são os mesmos da versão usada
+> na demo. O método do Valor Visível é proprietário e **foi omitido deste repositório**:
+>
+> - o modelo de leitura do negócio usado pela especialista, seus guias de aplicação e o guia de voz;
+> - as perguntas-base, os critérios de cada camada e os modelos de síntese originais;
+> - os prompts de condução da especialista e o motor original que deu origem ao projeto;
+> - documentos internos de planejamento, backlog e implantação.
+>
+> No lugar, há um **método de exemplo** com perguntas e modelos genéricos para as quatro camadas,
+> suficiente para rodar a jornada de ponta a ponta. Por isso as conversas desta versão são mais
+> simples que as da demo, e os números de avaliação abaixo se referem à versão completa.
+
 Demo: [vv.lirano.com.br](https://vv.lirano.com.br) (código de acesso com a equipe) ·
 sessão gravada, sem código: [vv.lirano.com.br/?replay=demo](https://vv.lirano.com.br/?replay=demo)
 
@@ -106,7 +116,7 @@ rodada (12/11, três perfis):
 
 ![Arquitetura](docs/architecture/architecture.png)
 
-<sub>Fonte do diagrama: [docs/architecture/architecture.mmd](docs/architecture/architecture.mmd).</sub>
+<sub>Fonte do diagrama: [docs/architecture/architecture.mmd](docs/architecture/architecture.mmd). Também disponível no [Canva](https://canva.link/bm1o62lz8byeeq7).</sub>
 
 ### Um turno, passo a passo
 
