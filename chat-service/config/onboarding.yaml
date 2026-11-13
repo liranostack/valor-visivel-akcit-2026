@@ -1,0 +1,52 @@
+# Onboarding (PRD step 1, US01–US02): quick choices first, free text only when needed.
+# Options are neutral for any business model. Fields map to vv_contracts.state.OnboardingAnswers.
+# `offer`, `audience` and `business_type` feed the anchor placeholders, so they accept her own words.
+consent:
+  question: >-
+    Antes de começar: o que você contar aqui fica só nesta sessão, serve apenas para construir o seu
+    material e é apagado em 30 dias. Você concorda em seguir?
+  options: ["Concordo e quero começar", "Não concordo"]
+steps:
+  - field: business_type
+    question: "Em que ramo você trabalha? Escreva do seu jeito (ex.: confeitaria, fisioterapia, design)."
+    free_text: true
+  - field: business_structure
+    question: "Como o seu negócio está organizado hoje?"
+    options: ["Autônoma, sem CNPJ", "MEI", "Empresa pequena com equipe", "Outro"]
+  - field: offer
+    question: "O que você oferece? Em poucas palavras, do jeito que você fala para quem compra."
+    free_text: true
+  - field: audience
+    question: "Para quem é o seu trabalho? Como você chama as pessoas que compram de você?"
+    free_text: true
+  - field: channels
+    question: "Por onde as pessoas chegam até você? Pode marcar mais de uma."
+    options: ["Indicação", "Instagram", "WhatsApp", "Site", "Loja ou espaço físico", "Marketplace", "Outro"]
+    multiple: true
+  - field: goal
+    question: "O que você quer agora com o seu negócio?"
+    options:
+      - "Explicar melhor o que eu faço"
+      - "Cobrar de forma mais justa"
+      - "Atrair mais clientes"
+      - "Me diferenciar de quem faz parecido"
+      - "Outro"
+    free_text: true
+  - field: perceived_difficulty
+    question: "Qual é a maior dificuldade hoje para mostrar o valor do que você faz?"
+    options:
+      - "Não sei explicar o que me diferencia"
+      - "Quando falo, parece igual a todo mundo"
+      - "Clientes comparam só pelo preço"
+      - "Outro"
+    free_text: true
+  - field: difficulty_context
+    question: "Em que momento essa dificuldade aparece mais? (opcional)"
+    options: ["Ao passar orçamento", "Nas redes sociais", "Na primeira conversa", "Pular"]
+    free_text: true
+  - field: declared_links
+    question: "Tem site ou Instagram do negócio? Cole os links (opcional). Só o site é lido."
+    options: ["Não tenho / pular"]
+    free_text: true
+baseline:
+  question: "Como você explica hoje, em uma frase, por que um cliente deveria escolher você?"

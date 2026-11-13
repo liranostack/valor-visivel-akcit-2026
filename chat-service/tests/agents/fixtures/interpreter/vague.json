@@ -1,0 +1,11 @@
+{
+  "concreteness": 1,
+  "relevance": 2,
+  "defensibility": 1,
+  "domain_fit": 4,
+  "facts": [],
+  "gaps": ["Nenhuma ação concreta da rotina."],
+  "generic_claims": ["qualidade"],
+  "difficulty_signals": [],
+  "rationale": "Only adjectives."
+}

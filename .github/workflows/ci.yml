@@ -1,0 +1,130 @@
+name: ci
+
+# Continuous integration for every PR and every push to main.
+# Deploys stay manual until the demo (ADR-010); this pipeline builds and verifies everything
+# a deploy would need, without touching AWS.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  detect:
+    name: detect optional packages
+    runs-on: ubuntu-latest
+    outputs:
+      infra: ${{ steps.check.outputs.infra }}
+      frontend: ${{ steps.check.outputs.frontend }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        run: |
+          echo "infra=$([ -f infra/cdk.json ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "frontend=$([ -f frontend/package.json ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+  python:
+    name: python · lock, lint, types, unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Lockfile is up to date
+        run: uv lock --check
+      - run: uv sync --all-packages --frozen
+      - name: Lint and format
+        run: make lint
+      - name: Types (pyright)
+        run: make typecheck
+      - name: Unit tests with coverage
+        run: |
+          uv run pytest --cov --cov-report=term-missing:skip-covered --cov-report=markdown:coverage.md \
+            --junitxml=pytest.xml
+      - name: Coverage summary
+        if: always()
+        run: |
+          if [ -f coverage.md ]; then
+            { echo "## Coverage"; cat coverage.md; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  images:
+    name: image · ${{ matrix.service }} (linux/arm64)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [chat-service, mcp-server]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+      - uses: docker/setup-buildx-action@v3
+      - name: Build ${{ matrix.service }} for AgentCore (ARM64, not pushed)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.service }}/Dockerfile
+          platforms: linux/arm64
+          push: false
+          cache-from: type=gha,scope=${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.service }}
+
+  infra:
+    name: infra · cdk synth
+    needs: detect
+    if: needs.detect.outputs.infra == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: uv sync --all-packages --frozen
+      - name: cdk synth (fake account, no credentials)
+        working-directory: infra
+        env:
+          CDK_DEFAULT_ACCOUNT: "000000000000"
+          CDK_DEFAULT_REGION: us-east-1
+        run: npx --yes aws-cdk@2 synth --quiet -a "uv run --no-sync python app.py"
+
+  frontend:
+    name: frontend · lint, tests, build
+    needs: detect
+    if: needs.detect.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npx vitest run
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_WS_MOCK: "1"

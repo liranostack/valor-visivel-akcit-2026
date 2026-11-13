@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.md
+pytest.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# CDK
+infra/cdk.out/
+cdk.context.json
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Generated test reports (never commit)
+docs/e2e-runs/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Demo replays come from real sessions (scripts/export_session.py --replay): kept local
+frontend/public/replays/*.json

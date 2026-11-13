@@ -1,0 +1,54 @@
+who: >-
+  Massoterapeuta autônoma há 9 anos, atende em sala alugada num prédio comercial e a domicílio.
+  Muitas clientes são mulheres de 35 a 55 anos com dor nas costas por trabalho em computador.
+style: Educada, um pouco formal, usa termos genéricos ("atendimento humanizado", "bem-estar").
+onboarding:
+  business_type: massoterapia
+  business_structure: autônoma
+  offer: Massagem terapêutica e relaxante
+  audience: Mulheres que trabalham sentadas e sentem dor
+  channels: [Instagram, Indicação]
+  goal: Ter agenda cheia sem depender de promoção
+  perceived_difficulty: As pessoas acham que massagem é tudo igual
+  difficulty_context: Quando alguém pergunta o preço no direct
+baseline: Ofereço um atendimento humanizado, com foco no bem-estar e no relaxamento de cada cliente.
+truths:
+  - id: anamnese
+    kind: hidden
+    text: >-
+      Antes da primeira sessão faz uma conversa de 15 minutos sobre rotina de trabalho e onde dói,
+      e anota num caderno; na sessão seguinte começa pelo ponto que mais doeu na semana.
+    reveal_when: perguntarem como foi a primeira sessão de uma cliente nova
+  - id: recusa-gestante
+    kind: hidden
+    text: Recusa gestante no primeiro trimestre e indica uma colega especializada.
+    reveal_when: perguntarem o que ela não aceita fazer
+  - id: exercicio-casa
+    kind: hidden
+    text: Manda pelo WhatsApp um vídeo de alongamento de 3 minutos depois da sessão.
+    reveal_when: perguntarem o que acontece depois da sessão
+  - id: dormiu
+    kind: external
+    text: Várias clientes contam que dormiram a noite inteira pela primeira vez em semanas.
+    reveal_when: perguntarem o que clientes falam depois
+  - id: lembra
+    kind: external
+    text: Uma cliente disse que indicou porque "ela lembra de tudo que eu falei da última vez".
+    reveal_when: perguntarem por que indicaram
+  - id: agenda
+    kind: routine
+    text: Atende 6 pessoas por dia, sessões de 50 minutos.
+  - id: preco
+    kind: contradiction
+    text: Diz que todo mundo só quer desconto, mas metade das clientes tem pacote mensal fechado.
+behavior:
+  confidence: low
+  verbosity: medium
+  confusion: 0.35
+  digression: 0.1
+vague_answers: 2
+scripted_answers:
+  - foi normal, atendi com carinho como sempre faço
+  - eu procuro entender o que a pessoa precisa e ofereço o melhor atendimento
+  - antes de começar eu converso uns 15 minutos sobre a rotina dela e onde dói, anoto tudo no meu caderno
+  - uma cliente me disse que indicou porque eu lembro de tudo que ela falou da última vez

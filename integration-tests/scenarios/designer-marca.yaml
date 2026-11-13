@@ -1,0 +1,53 @@
+who: >-
+  Designer de marca que faz identidade visual para pequenos negócios de comida e beleza; trabalha
+  sozinha em casa, 4 projetos por mês.
+style: Criativa, mistura inglês ("branding", "moodboard"), respostas médias, às vezes defensiva.
+onboarding:
+  business_type: design gráfico
+  business_structure: MEI
+  offer: Identidade visual
+  audience: Pequenos negócios de comida e beleza
+  channels: [Instagram, Behance, Indicação]
+  goal: Sair da concorrência por preço
+  perceived_difficulty: Comparam meu preço com o de quem faz logo no Canva
+  difficulty_context: No primeiro contato pelo direct
+baseline: Crio marcas autênticas e criativas que conectam com o seu público.
+truths:
+  - id: cliente-oculta
+    kind: hidden
+    text: >-
+      Antes de desenhar, vai ao negócio como cliente comum, compra algo e anota o que viu e ouviu.
+    reveal_when: perguntarem como começou o último projeto
+  - id: duas-rodadas
+    kind: hidden
+    text: Limita a duas rodadas de ajuste e explica no contrato o porquê; antes, um projeto durou 4 meses.
+    reveal_when: perguntarem o que ela não aceita
+  - id: manual-whats
+    kind: hidden
+    text: Entrega um manual de uso de uma página feito para o dono usar no WhatsApp e no Canva.
+    reveal_when: perguntarem o que entrega no fim
+  - id: fila
+    kind: external
+    text: Uma dona de salão contou que clientes novas começaram a dizer "vi a placa e entrei".
+    reveal_when: perguntarem o que mudou para um cliente depois
+  - id: sozinho-canva
+    kind: external
+    text: Um cliente disse que gostou porque "agora eu mesmo consigo fazer os posts sem estragar a marca".
+    reveal_when: perguntarem o que clientes comentam
+  - id: projetos
+    kind: routine
+    text: Faz 4 projetos por mês, cada um leva 3 semanas.
+  - id: canva
+    kind: contradiction
+    text: Reclama da comparação com Canva, mas entrega um manual justamente para o cliente usar no Canva.
+behavior:
+  confidence: medium
+  verbosity: medium
+  confusion: 0.2
+  irritation: 0.6
+vague_answers: 2
+scripted_answers:
+  - foi um branding completo, bem autêntico
+  - eu faço moodboard, pesquiso referências e crio a identidade
+  - antes de desenhar eu vou no negócio como cliente, compro alguma coisa e anoto tudo que vejo
+  - um cliente disse que agora ele mesmo consegue fazer os posts sem estragar a marca

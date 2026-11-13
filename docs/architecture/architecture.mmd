@@ -1,0 +1,34 @@
+flowchart LR
+  U["Empreendedora<br/>(navegador)"] -->|HTTPS| CF["CloudFront + S3<br/>site Next.js"]
+  U -->|"WebSocket + código de acesso"| APIGW["API Gateway<br/>WebSocket"]
+  APIGW --> L["Lambdas<br/>connect · message · worker"]
+  L -->|"InvokeAgentRuntime (SSE)"| CS
+
+  subgraph AC["Bedrock AgentCore Runtime"]
+    CS["chat-service<br/>turno de conversa"]
+    MCP["mcp-server<br/>ferramentas MCP"]
+  end
+
+  subgraph TURN["Um turno no chat-service"]
+    direction TB
+    GI["Guardrail de entrada"] --> I["Intérprete<br/>fatos, notas, lacunas"]
+    I --> C["Condutor<br/>regras em Python"]
+    C -->|"aprofundar / avançar"| INV["Investigador<br/>próxima pergunta"]
+    INV --> M["Moderador<br/>ritmo, voz, A/B/C"]
+    C -->|"fechar camada"| S["Sintetizador<br/>Mapa de Clareza citado"]
+    M --> GO["Guardrail de saída"]
+    S --> GO
+  end
+
+  CS -.-> TURN
+  CS -->|MCP| MCP
+  MCP --> DDB[("DynamoDB<br/>sessão, fatos, lacunas<br/>TTL 30 dias")]
+  MCP --> KB[("Base do método<br/>camadas, guia, modelos")]
+  CS -->|"Converse"| BR["Bedrock<br/>Sonnet 4.6 / Haiku 4.5"]
+  CS -->|"ApplyGuardrail"| GR["Bedrock Guardrails"]
+  CS -.->|"logs e passos"| CW["CloudWatch"]
+
+  subgraph EVAL["Avaliação (fora do turno)"]
+    SIM["Cliente simulada<br/>5 personas"] --> J["Juízes LLM +<br/>checagens determinísticas"]
+  end
+  EVAL -.->|"jornada completa em processo"| CS

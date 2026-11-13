@@ -1,0 +1,19 @@
+[project]
+name = "vv-backend"
+version = "0.1.0"
+description = "WebSocket Lambdas (API Gateway)"
+requires-python = ">=3.12"
+dependencies = [
+    "vv-contracts",
+    "boto3>=1.40",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vv_backend"]
+
+[tool.uv.sources]
+vv-contracts = { workspace = true }

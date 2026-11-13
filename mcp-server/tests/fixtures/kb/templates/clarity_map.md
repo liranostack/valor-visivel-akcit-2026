@@ -1,0 +1,3 @@
+# Mapa de Clareza
+
+## Negócio

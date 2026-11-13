@@ -1,0 +1,26 @@
+{
+  "concreteness": 4,
+  "relevance": 4,
+  "defensibility": 3,
+  "domain_fit": 5,
+  "facts": [
+    {
+      "text": "Antes de fechar um pedido, ela confirma por escrito o que a cliente espera receber.",
+      "source_excerpt": "confirmo por escrito o que a pessoa espera receber",
+      "kind": "characteristic",
+      "origin": "client_statement",
+      "finding_area": "hidden"
+    },
+    {
+      "text": "Ela entrega em 48 horas.",
+      "source_excerpt": "entrego tudo em 48 horas",
+      "kind": "evidence",
+      "origin": "client_statement",
+      "finding_area": "open"
+    }
+  ],
+  "gaps": ["Não disse como sabe que o resultado funcionou."],
+  "generic_claims": [],
+  "difficulty_signals": [],
+  "rationale": "Concrete routine step with an observable action."
+}

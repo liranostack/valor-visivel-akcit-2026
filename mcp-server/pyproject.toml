@@ -1,0 +1,22 @@
+[project]
+name = "vv-mcp"
+version = "0.1.0"
+description = "MCP tools server (AgentCore Runtime MCP)"
+requires-python = ">=3.12"
+dependencies = [
+    "vv-contracts",
+    "mcp>=1.9,<2",
+    "boto3>=1.35",
+    "opentelemetry-api>=1.27",
+    "pyyaml>=6.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vv_mcp"]
+
+[tool.uv.sources]
+vv-contracts = { workspace = true }

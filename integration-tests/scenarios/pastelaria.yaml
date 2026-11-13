@@ -1,0 +1,85 @@
+# Baseada na sessão real de 12/11/2026 (Ricardo, pelo front). Onboarding, linha de base e
+# respostas roteirizadas copiadas como digitadas. Verdades marcadas "[teste]" foram acrescentadas
+# para o simulador ter o que revelar; não vieram da sessão real.
+who: >-
+  Sócia de uma pastelaria MEI que faz empanadas argentinas em cozinha profissional, com o sócio nas
+  massas e duas cozinheiras nos recheios. Vende 80% para cafés, bares e restaurantes. Prática,
+  ocupada, responde pelo celular entre uma fornada e outra.
+style: >-
+  Informal, frases corridas, sem maiúsculas, erros de digitação ("profisisonal", "dagente"),
+  quase nunca usa ponto final. Responde curto quando acha a pergunta óbvia.
+onboarding:
+  business_type: pastelaria
+  business_structure: MEI
+  offer: Empanadas argentinas.
+  audience: >-
+    A gente fornece principalmente para cafés, bares e restaurantes mas também fornecemos para o
+    consumidor final. eu diria que 80/20
+  channels: [WhatsApp, Instagram, Indicação]
+  goal: Atrair mais clientes
+  perceived_difficulty: Clientes comparam só pelo preço
+  difficulty_context: Ao passar orçamento
+baseline: >-
+  Temos muitos sabores diferenciados, fornecemos a varios publicos (vegano, vegetariano e normal)..
+  somos bons em entregar o que o cliente pede e nao deixar ele na mao
+truths:
+  - id: capacidade
+    kind: routine
+    text: Cozinha profissional com produção diária de até 12 kg de massa, umas 300 empanadas.
+  - id: divisao
+    kind: routine
+    text: Os dois sócios fazem as massas; duas cozinheiras fazem os recheios; sócios fazem ou fretam as entregas.
+  - id: pesagem
+    kind: hidden
+    text: >-
+      Os sócios pesam a massa e o recheio de cada empanada antes de fechar, para todas saírem
+      iguais. Nunca contaram isso a cliente nenhum; acham que é o mínimo.
+    reveal_when: perguntarem o que conferem antes de uma empanada sair
+  - id: regra-48h
+    kind: hidden
+    text: >-
+      Pedido feito com pelo menos 48h de antecedência é sempre atendido; se não dá tudo de uma vez,
+      dividem a entrega (uma parte antes, o resto ao longo da semana).
+    reveal_when: perguntarem sobre um pedido grande ou apertado
+  - id: orcamento-tabela
+    kind: hidden
+    text: >-
+      [teste] Quando passa orçamento, manda só a tabela de preço por sabor no WhatsApp, sem falar
+      da regra das 48h nem da pesagem.
+    reveal_when: perguntarem como foi o último orçamento que ela passou
+  - id: cafe-cardapio
+    kind: external
+    text: >-
+      [teste] A dona de um café disse que fica com eles porque a empanada chega sempre do mesmo
+      tamanho e ela consegue manter o preço no cardápio sem surpresa.
+    reveal_when: perguntarem o que um cliente de café ou restaurante já disse
+  - id: comprometidos
+    kind: external
+    text: Clientes dizem que eles são muito comprometidos e que conseguem contar com eles quando precisam.
+    reveal_when: perguntarem o que clientes comentam
+  - id: barato
+    kind: contradiction
+    text: >-
+      [teste] Diz que o cliente só olha preço, mas os cafés mais antigos nunca pediram desconto.
+behavior:
+  confidence: medium
+  verbosity: short
+  confusion: 0.15
+  irritation: 0.5
+vague_answers: 1
+scripted_answers:
+  - >-
+    normal, a gente tem uma cozinha profisisonal, com equipamento para producao diaria de ate 12kg
+    de passa (que da umas 300 empanadas), somos dois nas massas (os socios) e duas cozinheiras
+    (fazem os recheios). nos criamos tudo, fazemos as entregas (ou fretamos)
+  - >-
+    tendemos a fazer o maximo possivel de tarefas para economizar nos custos e nao repassar para o
+    cliente final. outro ponto importnate é a finalizacao das empanadas, nos apreciamos fazer pois
+    entregamos com bastante cuidado e detalhe o produto final que aidna assim é bem artesanal
+  - >-
+    que somos muito comprometidos, que quando precisam dagente cosneguem contar conosco, nos temos
+    uma unica regra, pedidos com pelo menos 48h de atecedencia sao sempre atendidos, nem que
+    precisemos particionar a entrega (uma parte antes e ao longo da semana o restante, para o
+    cliente nao ficar na mao)
+  - >-
+    conferimos cada detalhe: o peso da massa, o peso do recheio, para ser o mais assertivo possivel.

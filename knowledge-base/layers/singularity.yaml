@@ -1,0 +1,73 @@
+# Camada 2 (exemplo genérico da versão aberta). O método completo do Valor Visível é proprietário.
+layer_id: singularity
+order: 2
+name: Lógica de Singularidade
+objective: >-
+  Entender o que, na prática, faz o trabalho funcionar do jeito que funciona.
+pain_to_solve: >-
+  O que diferencia o trabalho fica implícito e difícil de explicar.
+success_signal: >-
+  Uma prática ou escolha concreta, descrita pela própria pessoa, que sustenta o resultado.
+closure_criteria: >-
+  A síntese nomeia práticas e escolhas concretas com fatos citados, sem prometer exclusividade.
+synthesis_template: templates/differentiation_map.md
+stages:
+  - stage_id: singularity.backstage_gear
+    title: O que acontece por trás
+    objective: >-
+      Entender o que acontece antes da entrega e que quem compra não vê.
+    extraction_focus: prática que acontece antes da entrega
+    anchors:
+      - angle: decision
+        question: Que escolha você faz no {seu_trabalho} e que poucas pessoas percebem?
+      - angle: routine
+        question: O que você prepara antes de entregar {sua_oferta}?
+      - angle: avoided_error
+        question: Que cuidado você toma para evitar um problema no {seu_trabalho}?
+      - angle: limit
+        question: Em que parte do {seu_trabalho} você prefere não economizar tempo?
+      - angle: proof
+        question: Como {a_cliente} percebe esse cuidado no resultado?
+      - angle: blind_spot
+        question: O que você faz no {seu_trabalho} que talvez pareça simples para quem vê de fora?
+    rescue_angles: [decision, routine, blind_spot]
+
+  - stage_id: singularity.commitments_filter
+    title: Limites do trabalho
+    objective: >-
+      Entender o que a pessoa entrega e o que ela escolhe não entregar.
+    extraction_focus: limite que a pessoa mantém
+    anchors:
+      - angle: limit
+        question: O que você prefere não prometer para {a_cliente}?
+      - angle: decision
+        question: Em que situação você já disse não a um pedido?
+      - angle: avoided_error
+        question: Que tipo de pedido costuma não dar certo no {seu_trabalho}?
+      - angle: routine
+        question: Como você avalia um pedido antes de aceitar?
+      - angle: proof
+        question: O que acontece quando você mantém esse limite?
+      - angle: blind_spot
+        question: Que limite seu {as_clientes} talvez não conheçam?
+    rescue_angles: [limit, decision, avoided_error]
+
+  - stage_id: singularity.non_copyable
+    title: O que é difícil de repetir
+    objective: >-
+      Entender o que seria difícil de repetir sem a mesma experiência ou escolha.
+    extraction_focus: prática difícil de repetir
+    anchors:
+      - angle: blind_spot
+        question: O que alguém precisaria aprender para fazer o {seu_trabalho} do seu jeito?
+      - angle: avoided_error
+        question: Que erro alguém iniciante no {setor} costuma cometer?
+      - angle: decision
+        question: Que decisão sua leva tempo para aprender?
+      - angle: routine
+        question: Que hábito seu faz diferença no resultado?
+      - angle: proof
+        question: Quando {a_cliente} volta a procurar você, o que costuma dizer?
+      - angle: limit
+        question: O que você não mudaria no {seu_trabalho}, mesmo com pressa?
+    rescue_angles: [blind_spot, avoided_error, decision]

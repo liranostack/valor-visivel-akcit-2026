@@ -1,0 +1,77 @@
+# Camada 1 (exemplo genérico da versão aberta). O método completo do Valor Visível é proprietário.
+#
+# Âncoras = etapa × ângulo: uma pergunta genérica por ângulo. São referência e fallback seguro,
+# não roteiro: o Investigador formula a pergunta real a partir do que a pessoa disse.
+# Os placeholders vêm de vv_contracts.kb.ANCHOR_PLACEHOLDERS.
+layer_id: clarity
+order: 1
+name: Nitidez de Marca
+objective: >-
+  Descrever com fatos concretos o que o negócio faz, para quem e que problema resolve.
+pain_to_solve: >-
+  A pessoa descreve o próprio trabalho com expressões genéricas.
+success_signal: >-
+  Fatos concretos sobre o trabalho, o público e o problema, nas palavras da própria pessoa.
+closure_criteria: >-
+  A síntese descreve negócio, público e problema com fatos citados, sem adjetivos genéricos.
+synthesis_template: templates/clarity_map.md
+stages:
+  - stage_id: clarity.real_context
+    title: Contexto Real
+    objective: >-
+      Entender o que o negócio faz, para quem e em que situação alguém o procura.
+    extraction_focus: o que é feito e para quem
+    anchors:
+      - angle: routine
+        question: Pode me contar sobre um atendimento recente, do pedido até a entrega?
+      - angle: decision
+        question: Quando alguém costuma procurar {sua_oferta}?
+      - angle: limit
+        question: Para quem {sua_oferta} não é a melhor opção?
+      - angle: avoided_error
+        question: Que dúvida sobre {sua_oferta} aparece com frequência no começo?
+      - angle: proof
+        question: O que muda para {a_cliente} depois de receber {sua_oferta}?
+      - angle: blind_spot
+        question: Como {as_clientes} costumam descrever o {seu_negocio}?
+    rescue_angles: [routine, decision, blind_spot]
+
+  - stage_id: clarity.routine
+    title: Rotina Operacional
+    objective: >-
+      Entender as etapas que se repetem no trabalho.
+    extraction_focus: etapa que se repete
+    anchors:
+      - angle: routine
+        question: Quais são as etapas principais do {seu_trabalho}?
+      - angle: limit
+        question: O que você prefere não fazer no {seu_trabalho}?
+      - angle: avoided_error
+        question: Que problema você procura evitar no {seu_trabalho}?
+      - angle: decision
+        question: Que escolha você costuma fazer durante o {seu_trabalho}?
+      - angle: proof
+        question: Como você confere se uma etapa ficou boa?
+      - angle: blind_spot
+        question: Que parte do {seu_trabalho} acontece sem que {a_cliente} veja?
+    rescue_angles: [routine, limit, avoided_error, decision]
+
+  - stage_id: clarity.execution_evidence
+    title: Evidência de Execução
+    objective: >-
+      Reunir sinais concretos de que o resultado acontece.
+    extraction_focus: sinal observável de resultado
+    anchors:
+      - angle: proof
+        question: Como você sabe que o {seu_trabalho} deu certo?
+      - angle: routine
+        question: O que você acompanha depois de entregar {sua_oferta}?
+      - angle: limit
+        question: O que você faz quando um resultado não sai como esperado?
+      - angle: avoided_error
+        question: Que problema deixou de acontecer depois de alguma mudança sua?
+      - angle: decision
+        question: O que faz você ajustar o {seu_trabalho}?
+      - angle: blind_spot
+        question: O que {as_clientes} já comentaram sobre o {seu_trabalho}?
+    rescue_angles: [proof, routine, blind_spot]

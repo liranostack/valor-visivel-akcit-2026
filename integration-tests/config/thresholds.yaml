@@ -1,0 +1,30 @@
+# Pass limits (ERD "Métricas de LLM-as-judge"), proposals to calibrate with the reports in
+# docs/e2e-runs. Enforced in real mode only; offline runs report without failing.
+# Units: see vv_it/fidelity.py (deterministic) and vv_it/judges/conversation.md (judge).
+rules:
+  # deterministic
+  layer_closed: {min: 1}
+  quadrant_coverage: {min: 1}
+  hypothesis_as_fact: {max: 0}
+  synthesis_traceability: {min: 1.0}
+  non_repetition: {max: 0}
+  # judge
+  question_quality: {min: 3.5}
+  episode_anchoring: {min: 0.8}
+  leading_question: {max: 0.05}
+  praise_validation: {max: 0}
+  conciseness: {min: 4}
+  area_depth: {min: 1}
+  genericity: {max: 2}
+  insight: {min: 3}
+  # vv rhythm (orchestrator v2 and its V2 release criteria)
+  acknowledgment: {min: 4}
+  corrective_tone: {max: 0}
+  question_coverage: {min: 0.95}
+  tone: {min: 4}
+  # voice guide: no long dash in what she reads
+  em_dash: {max: 0}
+  # 0 = the client showed no difficulty in this run (not applicable)
+  difficulty_handling: {min: 3, na: 0}
+  # truths from the persona's sheet that became a fact or reached the synthesis
+  truth_recall: {min: 0.5}

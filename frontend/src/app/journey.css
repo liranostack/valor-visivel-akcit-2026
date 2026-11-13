@@ -1,0 +1,31 @@
+/* Additions for the WebSocket journey (consent, quick choices, ABC, synthesis). */
+.welcome { display: grid; gap: 14px; max-width: 560px; margin: 8vh auto; padding: 0 16px; }
+.welcome h1 { font-size: 1.6rem; margin: 0; letter-spacing: -0.02em; }
+.welcome p { margin: 0; color: var(--muted); line-height: 1.5; }
+.retention { font-size: 0.85rem; color: var(--muted); border-left: 3px solid var(--primary-line); padding-left: 10px; }
+.choice-panel { display: grid; gap: 10px; padding: 12px 0; }
+.choice-panel .question { font-weight: 600; line-height: 1.45; }
+.choice-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.choice { border: 1px solid var(--primary-line); background: var(--primary-soft); color: var(--primary-ink);
+  border-radius: 999px; padding: 8px 14px; cursor: pointer; font: inherit; text-align: left; }
+.choice[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
+.choice:disabled { opacity: 0.5; cursor: default; }
+.abc-list { display: grid; gap: 8px; }
+.abc-list .choice { border-radius: 8px; }
+.free-text-row { display: flex; gap: 8px; }
+.free-text-row input { flex: 1; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font: inherit; }
+.step-count { font-size: 0.78rem; color: var(--muted); }
+.progress-text { font-size: 0.85rem; color: var(--muted); }
+.layers { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.layers li { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: var(--muted); }
+.layers li.current { color: var(--text); font-weight: 600; }
+.layers li .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--line); }
+.layers li.current .dot { background: var(--primary); }
+.layers li.done .dot { background: var(--good); }
+.synthesis h3 { font-size: 0.92rem; margin: 14px 0 4px; }
+.synthesis p { margin: 0 0 8px; line-height: 1.5; white-space: pre-line; }
+.synthesis .gaps { color: var(--warn); }
+.error-strip { color: var(--bad); font-size: 0.9rem; }
+.chat-list { align-content: start; }
+.synthesis .review { border-top: 1px solid var(--line, #e5e5e5); margin-top: 12px; padding-top: 12px; }
+.synthesis .review .hint { font-size: 0.85em; opacity: 0.75; }

@@ -1,0 +1,21 @@
+layer_id: clarity
+order: 1
+name: Nitidez de Marca
+objective: tirar a mensagem da névoa
+pain_to_solve: cai no genérico
+success_signal: fato operacional observável
+closure_criteria: síntese reflete rotina real
+synthesis_template: templates/clarity_map.md
+stages:
+  - stage_id: clarity.real_context
+    title: Contexto Real
+    objective: Mapear o dia a dia sem adjetivos.
+    extraction_focus: ação concreta de rotina
+    anchors:
+      - angle: routine
+        question: Como é um {seu_trabalho} típico, do começo ao fim?
+      - angle: limit
+        question: O que você se recusa a fazer no {seu_trabalho}?
+      - angle: blind_spot
+        question: O que {as_clientes} mais elogiam?
+    rescue_angles: [routine, limit]

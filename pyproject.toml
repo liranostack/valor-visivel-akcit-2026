@@ -1,0 +1,66 @@
+[project]
+name = "valor-visivel"
+version = "0.1.0"
+description = "Valor Visível — multi-agent AI on Amazon Bedrock AgentCore (AKCIT Camp hackathon)"
+requires-python = ">=3.12"
+dependencies = ["vv-contracts", "vv-chat", "vv-mcp", "vv-backend", "vv-infra", "vv-it"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.7",
+    "pyright>=1.1.390",
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "pytest-asyncio>=0.24",
+    "moto[dynamodb,s3]>=5.0",
+    "websockets>=13",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/vv-contracts", "chat-service", "mcp-server", "backend", "infra", "integration-tests"]
+
+[tool.uv.sources]
+vv-contracts = { workspace = true }
+vv-chat = { workspace = true }
+vv-mcp = { workspace = true }
+vv-backend = { workspace = true }
+vv-infra = { workspace = true }
+vv-it = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["reference", "frontend", "infra/cdk.out", "docs/source"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+include = ["packages", "chat-service", "mcp-server", "backend", "infra", "integration-tests", "knowledge-base", "scripts"]
+exclude = ["**/node_modules", "**/.venv", "reference", "frontend", "infra/cdk.out"]
+strict = ["packages/vv-contracts/src"]
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+addopts = "-q --import-mode=importlib -m 'not integration and not aws'"
+testpaths = ["packages", "chat-service", "mcp-server", "backend", "infra", "integration-tests", "knowledge-base", "scripts"]
+norecursedirs = ["cdk.out", ".venv", "node_modules", "reference", "overrides", ".*"]
+markers = [
+    "integration: calls real models (Bedrock); run with make test-integration",
+    "aws: touches real AWS resources; human-run only",
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+source = ["vv_contracts", "vv_chat", "vv_mcp", "vv_backend", "vv_infra", "vv_it"]
+
+[tool.coverage.report]
+skip_empty = true
+exclude_also = ["if __name__ == .__main__.:", "pragma: no cover"]

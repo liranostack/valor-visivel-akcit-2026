@@ -1,0 +1,73 @@
+# Camada 3 (exemplo genérico da versão aberta). O método completo do Valor Visível é proprietário.
+layer_id: translation
+order: 3
+name: Tradução de Valor
+objective: >-
+  Ligar o que a pessoa faz ao efeito que quem compra percebe.
+pain_to_solve: >-
+  A pessoa descreve o processo, mas não o efeito para quem compra.
+success_signal: >-
+  Uma frase simples que liga uma prática concreta a um efeito descrito pela própria pessoa.
+closure_criteria: >-
+  A síntese liga práticas a efeitos com fatos citados, em linguagem que quem compra entende.
+synthesis_template: templates/verbal_platform.md
+stages:
+  - stage_id: translation.immediate_impact
+    title: Efeito para quem compra
+    objective: >-
+      Entender o que quem compra percebe logo depois de receber o trabalho.
+    extraction_focus: efeito percebido por quem compra
+    anchors:
+      - angle: proof
+        question: O que {a_cliente} costuma notar logo depois de receber {sua_oferta}?
+      - angle: blind_spot
+        question: Que efeito do {seu_trabalho} você só descobriu porque alguém contou?
+      - angle: routine
+        question: O que você pergunta para {a_cliente} depois da entrega?
+      - angle: decision
+        question: Que resultado você prioriza quando precisa escolher?
+      - angle: avoided_error
+        question: Que incômodo {a_cliente} deixa de ter depois do {seu_trabalho}?
+      - angle: limit
+        question: Que resultado você prefere não prometer?
+    rescue_angles: [proof, blind_spot, routine]
+
+  - stage_id: translation.clear_narrative
+    title: Como você explica
+    objective: >-
+      Entender como a pessoa explica o trabalho hoje e o que fica de fora.
+    extraction_focus: explicação atual do trabalho
+    anchors:
+      - angle: routine
+        question: Como você costuma explicar o {seu_trabalho} para alguém que não conhece?
+      - angle: blind_spot
+        question: Que parte do {seu_trabalho} costuma ficar de fora quando você explica?
+      - angle: proof
+        question: Que exemplo você usa para mostrar o que faz?
+      - angle: decision
+        question: O que você escolhe falar primeiro sobre {sua_oferta}?
+      - angle: avoided_error
+        question: Que confusão sobre o {seu_trabalho} você costuma esclarecer?
+      - angle: limit
+        question: O que você prefere não dizer sobre {sua_oferta}?
+    rescue_angles: [routine, blind_spot, proof]
+
+  - stage_id: translation.clarity_test
+    title: Teste com outra pessoa
+    objective: >-
+      Verificar se a explicação faz sentido para quem não conhece o trabalho.
+    extraction_focus: reação de outra pessoa à explicação
+    anchors:
+      - angle: limit
+        question: Que parte da sua explicação costuma gerar dúvida?
+      - angle: avoided_error
+        question: Que palavra do {setor} você evita usar com {a_cliente}?
+      - angle: decision
+        question: Se tivesse pouco tempo, que frase você usaria para apresentar o {seu_negocio}?
+      - angle: blind_spot
+        question: Como alguém de fora repetiria o que você faz?
+      - angle: proof
+        question: Que pergunta aparece quando você explica {sua_oferta}?
+      - angle: routine
+        question: Onde você costuma apresentar o {seu_negocio}?
+    rescue_angles: [limit, avoided_error, blind_spot]

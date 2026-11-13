@@ -1,0 +1,73 @@
+# Camada 4 (exemplo genérico da versão aberta). O método completo do Valor Visível é proprietário.
+layer_id: sustainment
+order: 4
+name: Sustentação da Marca
+objective: >-
+  Reunir o que sustenta a mensagem quando alguém pede prova.
+pain_to_solve: >-
+  A mensagem não se apoia em provas que a pessoa já tem.
+success_signal: >-
+  Provas e respostas concretas que a pessoa já tem ou pode reunir.
+closure_criteria: >-
+  A síntese lista provas e respostas com fatos citados, sem inflar o que a pessoa tem.
+synthesis_template: templates/consistency_guide.md
+stages:
+  - stage_id: sustainment.delivery_proof
+    title: Provas disponíveis
+    objective: >-
+      Levantar o que a pessoa já tem para mostrar que o trabalho funciona.
+    extraction_focus: prova que a pessoa já tem
+    anchors:
+      - angle: proof
+        question: Que registro do {seu_trabalho} você já tem guardado?
+      - angle: blind_spot
+        question: Que retorno de {a_cliente} você nunca usou para apresentar o {seu_negocio}?
+      - angle: routine
+        question: Como você guarda os resultados do {seu_trabalho}?
+      - angle: avoided_error
+        question: Que tipo de prova você evita usar?
+      - angle: decision
+        question: Que prova você mostraria primeiro para alguém em dúvida?
+      - angle: limit
+        question: O que você ainda não consegue comprovar?
+    rescue_angles: [proof, blind_spot, routine]
+
+  - stage_id: sustainment.objection_neutralized
+    title: Dúvidas de quem compra
+    objective: >-
+      Entender as dúvidas comuns de quem compra e como a pessoa responde.
+    extraction_focus: dúvida comum e resposta concreta
+    anchors:
+      - angle: avoided_error
+        question: Que dúvida faz alguém desistir de comprar {sua_oferta}?
+      - angle: decision
+        question: Como você responde quando alguém acha {sua_oferta} cara?
+      - angle: blind_spot
+        question: Que receio {as_clientes} talvez tenham e não falem?
+      - angle: proof
+        question: Que exemplo ajuda a responder essa dúvida?
+      - angle: limit
+        question: Que dúvida você prefere não tentar convencer?
+      - angle: routine
+        question: Em que momento essas dúvidas costumam aparecer?
+    rescue_angles: [avoided_error, decision, blind_spot]
+
+  - stage_id: sustainment.final_validation
+    title: Revisão final
+    objective: >-
+      Confirmar o que a pessoa se sente segura para dizer em público.
+    extraction_focus: o que a pessoa confirma que pode dizer
+    anchors:
+      - angle: limit
+        question: O que você ainda não se sente segura para dizer em público?
+      - angle: decision
+        question: Que frase sobre o {seu_negocio} você assinaria hoje?
+      - angle: blind_spot
+        question: O que alguém próximo diria que ficou faltando?
+      - angle: avoided_error
+        question: Que exagero você quer evitar ao falar do {seu_trabalho}?
+      - angle: proof
+        question: Que fato sustenta a frase que você escolheu?
+      - angle: routine
+        question: Onde você vai usar essa mensagem primeiro?
+    rescue_angles: [limit, decision, blind_spot]

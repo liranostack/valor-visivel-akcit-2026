@@ -1,0 +1,32 @@
+# Real test session of 12/11/2026 (Ricardo, via the frontend). Answers copied as typed.
+# The original run produced an obvious Mapa de Clareza; use this to compare before/after.
+onboarding:
+  business_type: pastelaria
+  business_structure: MEI
+  offer: Empanadas argentinas.
+  audience: >-
+    A gente fornece principalmente para cafés, bares e restaurantes mas também fornecemos para o
+    consumidor final. eu diria que 80/20
+  channels: [WhatsApp, Instagram, Indicação]
+  goal: Atrair mais clientes
+  perceived_difficulty: Clientes comparam só pelo preço
+  difficulty_context: Ao passar orçamento
+baseline: >-
+  Temos muitos sabores diferenciados, fornecemos a varios publicos (vegano, vegetariano e normal)..
+  somos bons em entregar o que o cliente pede e nao deixar ele na mao
+answers:
+  - >-
+    normal, a gente tem uma cozinha profisisonal, com equipamento para producao diaria de ate 12kg
+    de passa (que da umas 300 empanadas), somos dois nas massas (os socios) e duas cozinheiras
+    (fazem os recheios). nos criamos tudo, fazemos as entregas (ou fretamos)
+  - >-
+    tendemos a fazer o maximo possivel de tarefas para economizar nos custos e nao repassar para o
+    cliente final. outro ponto importnate é a finalizacao das empanadas, nos apreciamos fazer pois
+    entregamos com bastante cuidado e detalhe o produto final que aidna assim é bem artesanal
+  - >-
+    que somos muito comprometidos, que quando precisam dagente cosneguem contar conosco, nos temos
+    uma unica regra, pedidos com pelo menos 48h de atecedencia sao sempre atendidos, nem que
+    precisemos particionar a entrega (uma parte antes e ao longo da semana o restante, para o
+    cliente nao ficar na mao)
+  - >-
+    conferimos cada detalhe: o peso da massa, o peso do recheio, para ser o mais assertivo possivel.

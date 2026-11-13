@@ -1,0 +1,25 @@
+[project]
+name = "vv-chat"
+version = "0.1.0"
+description = "Turn loop, Conductor and Strands agents (AgentCore Runtime HTTP)"
+requires-python = ">=3.12"
+dependencies = [
+    "vv-contracts",
+    "pyyaml>=6.0",
+    "strands-agents>=1.0",
+    "bedrock-agentcore>=0.1",
+    "mcp>=1.9,<2",
+    "vv-mcp",
+    "rapidfuzz>=3.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vv_chat"]
+
+[tool.uv.sources]
+vv-contracts = { workspace = true }
+vv-mcp = { workspace = true }

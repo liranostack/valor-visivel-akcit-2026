@@ -1,0 +1,6 @@
+# USD per 1M tokens on Bedrock, US cross-region inference profiles (us.*), checked 12/11/2026:
+# https://www.getmaxim.ai/bifrost/llm-cost-calculator/provider/bedrock/model/us.anthropic.claude-sonnet-4-6
+# https://www.getmaxim.ai/bifrost/llm-cost-calculator/provider/bedrock/model/us.anthropic.claude-haiku-4-5-20251001-v1-0
+# Confirm against the AWS Bedrock pricing page before quoting a number in the pitch.
+us.anthropic.claude-sonnet-4-6: {input: 3.30, output: 16.50}
+us.anthropic.claude-haiku-4-5-20251001-v1:0: {input: 1.10, output: 5.50}

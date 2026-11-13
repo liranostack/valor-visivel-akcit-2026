@@ -1,0 +1,14 @@
+# Model per agent role (ERD + ADR-011). Ids can be overridden by env MODEL_LARGE / MODEL_SMALL.
+# large: Claude Sonnet 4.6 (active on Bedrock). Sonnet 4.5 is Legacy; Sonnet 5 and 5.5 are not yet
+# enabled for this account (support case open). Switch back here when they are. Moderator starts large; it moves to small only if the integration scenarios keep quality.
+region: us-east-1
+sizes:
+  large: us.anthropic.claude-sonnet-4-6
+  small: us.anthropic.claude-haiku-4-5-20251001-v1:0
+roles:
+  interpreter: large
+  investigator: large
+  moderator: large
+  synthesizer: large
+  public_researcher: small
+  judge: small

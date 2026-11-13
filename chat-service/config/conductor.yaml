@@ -1,0 +1,15 @@
+# Conductor configuration (ERD, "Máquina de estados do Conductor"). All limits are config, not code.
+conductor:
+  max_attempts_per_stage: 2          # PRD: test parameter, tune with scenarios
+  abc_options_on_attempt: 2
+  deepen_below_score: 3              # concreteness or relevance (1-5)
+  advance_min_fact_score: 3          # at least one fact >= 3 on the base question
+  resume_gaps_before_synthesis: true # one resume question per open gap, max 1 per layer
+  layer_review_enabled: true         # pending leadership: PRD only requires Pre-Core review
+  require_hidden_or_blind_fact:
+    - singularity                    # layer cannot close on open-quadrant facts only
+  layers_order: [clarity, singularity, translation, sustainment]
+  # Lead's pedido de limites: the journey always asks for the limits that protect the
+  # delivery. The first question of these stages goes after it (A.06.13).
+  focus_on_stage_entry:
+    clarity.routine: limit
